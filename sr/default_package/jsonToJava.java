@@ -17,12 +17,17 @@ public class jsonToJava {
 		
 		//object of statement class will help us to execute queries
 		Statement st =conn.createStatement();
-		ResultSet rs =st.executeQuery("select * from CustomerInfo where purchasedDate=CURDATE() and Location ='Asia'");
+		ResultSet rs =st.executeQuery("select * from CustomerInfo where location ='Asia' purchasedDate=CURDATE() LIMIT 1;");
 		while(rs.next()) {
-			System.out.println(rs.getString(1));
-			System.out.println(rs.getString(2));
-			System.out.println(rs.getInt(3));
-			System.out.println(rs.getString(4));
+			
+			CustomerDetails c =new CustomerDetails();
+			
+			c.setCourseName(rs.getString(1));
+			c.setPurchaseDate(rs.getString(2));
+			c.setAmount(rs.getInt(3));
+			c.setLocation(rs.getString(4));
+			System.out.println(c.getCourseName());
+			
 		}
 		
 		conn.close();
