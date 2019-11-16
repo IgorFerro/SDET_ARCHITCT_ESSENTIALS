@@ -27,6 +27,9 @@ public class jsonToJava {
 			c.setAmount(rs.getInt(3));
 			c.setLocation(rs.getString(4));
 			System.out.println(c.getCourseName());
+			System.out.println(c.getPurchaseDate());
+			System.out.println(c.getAmount());
+			System.out.println(c.getLocation());
 			
 		}
 		
